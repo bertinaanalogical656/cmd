@@ -1,0 +1,62 @@
+name: Feature request
+description: Suggest an idea or improvement
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. A few notes:
+
+        - For broader ideas / RFCs, consider opening a [Discussion](https://github.com/autmzr/cmd/discussions) first.
+        - We use 👍 reactions on issues as a demand signal, so describe the use case clearly.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: The user-facing pain. Not the implementation.
+      placeholder: When I have multiple servers, I can't see at a glance which one has the longest-running agent task.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      placeholder: Add a "running tasks" indicator next to each device on the Devices tab.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: Other approaches you thought about and why you rejected them.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - UI / UX
+        - Agent / runtime
+        - CLI integration (new vendor)
+        - Auth / accounts
+        - Infrastructure / deployment
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Are you willing to contribute?
+      description: Optional, but helpful for triage.
+      options:
+        - label: I would be willing to send a PR for this.
+          required: false
+        - label: I'd help test if someone else builds it.
+          required: false
