@@ -2,24 +2,35 @@ import { NextRequest, NextResponse } from 'next/server';
 import { CSRF_COOKIE, CSRF_HEADER } from '@/lib/csrf-const';
 
 /**
- * Глобальный CSRF-чек для всех mutating API-роутов.
- * Применяется к /api/* для POST/PUT/DELETE/PATCH.
+ * Объединённый middleware:
+ *   1. CSRF-чек для всех mutating /api/* роутов.
+ *   2. Прокидывание pathname в request header — i18n resolver
+ *      использует его, чтобы форсить en на /login и /app/*
+ *      (форма регистрации и приложение всегда на английском,
+ *      cookie pc_locale игнорируется в этих зонах).
  *
- * Исключения:
- *   - /api/rfs/* — авторизуется bearer-токеном (агент → master), не cookie-based
+ * Исключения CSRF:
+ *   - /api/rfs/* — bearer-токен (агент → master), не cookie-based
  */
 export const config = {
-  matcher: ['/api/:path*'],
+  matcher: ['/api/:path*', '/login', '/app/:path*'],
 };
 
 const SKIP_PATHS = ['/api/rfs/'];
 
 export function middleware(req: NextRequest) {
-  const method = req.method.toUpperCase();
-  // Safe-методы пропускаем
-  if (method === 'GET' || method === 'HEAD' || method === 'OPTIONS') return NextResponse.next();
-  // RFS-эндпоинты используют bearer-токены, без cookie — пропускаем
   const path = req.nextUrl.pathname;
+
+  // Не-API пути — прокидываем x-pathname для i18n resolver
+  if (!path.startsWith('/api/')) {
+    const reqHeaders = new Headers(req.headers);
+    reqHeaders.set('x-pathname', path);
+    return NextResponse.next({ request: { headers: reqHeaders } });
+  }
+
+  // Дальше — CSRF логика для /api/*
+  const method = req.method.toUpperCase();
+  if (method === 'GET' || method === 'HEAD' || method === 'OPTIONS') return NextResponse.next();
   for (const skip of SKIP_PATHS) {
     if (path.startsWith(skip)) return NextResponse.next();
   }
