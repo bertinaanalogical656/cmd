@@ -1,19 +1,19 @@
 'use client';
 
 import { Terminal, Github } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations('footer');
+  const year = new Date().getFullYear();
+
   return (
     <footer
       className="w-full border-t"
-      style={{
-        background: 'var(--bg)',
-        borderColor: 'var(--border)',
-      }}
+      style={{ background: 'var(--bg)', borderColor: 'var(--border)' }}
     >
       <div className="mx-auto w-full max-w-[1100px] px-6 py-12 md:py-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          {/* Brand */}
           <div className="max-w-[320px]">
             <div className="flex items-center gap-2">
               <div
@@ -22,57 +22,39 @@ export default function Footer() {
               >
                 <Terminal size={15} strokeWidth={2.4} />
               </div>
-              <span className="text-[15px] font-semibold tracking-tight">
-                Autmzr
-              </span>
+              <span className="text-[15px] font-semibold tracking-tight">Autmzr</span>
             </div>
-            <p
-              className="mt-3 text-[13px] leading-[1.55]"
-              style={{ color: 'var(--fg-2)' }}
-            >
-              All your VPS and CLIs in one mobile interface.
+            <p className="mt-3 text-[13px] leading-[1.55]" style={{ color: 'var(--fg-2)' }}>
+              {t('tagline')}
             </p>
           </div>
 
-          {/* Link columns */}
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:gap-12">
-            <FooterCol title="Product">
-              <FooterLink href="/login">Sign in</FooterLink>
-              <FooterLink href="/#pricing">Pricing</FooterLink>
-              <FooterLink
-                href="https://github.com/autmzr/cmd"
-                external
-              >
+            <FooterCol title={t('columns.product')}>
+              <FooterLink href="/login">{t('links.signIn')}</FooterLink>
+              <FooterLink href="/#pricing">{t('links.pricing')}</FooterLink>
+              <FooterLink href="https://github.com/autmzr/cmd" external>
                 <span className="inline-flex items-center gap-1.5">
                   <Github size={12} />
-                  GitHub
+                  {t('links.github')}
                 </span>
               </FooterLink>
             </FooterCol>
-            <FooterCol title="Resources">
-              <FooterLink
-                href="https://github.com/autmzr/cmd#readme"
-                external
-              >
-                Docs
+            <FooterCol title={t('columns.resources')}>
+              <FooterLink href="https://github.com/autmzr/cmd#readme" external>
+                {t('links.docs')}
               </FooterLink>
-              <FooterLink
-                href="https://github.com/autmzr/cmd/issues"
-                external
-              >
-                Report a bug
+              <FooterLink href="https://github.com/autmzr/cmd/issues" external>
+                {t('links.reportBug')}
               </FooterLink>
-              <FooterLink
-                href="https://github.com/autmzr/cmd/releases"
-                external
-              >
-                Changelog
+              <FooterLink href="https://github.com/autmzr/cmd/releases" external>
+                {t('links.changelog')}
               </FooterLink>
             </FooterCol>
-            <FooterCol title="Legal">
-              <FooterLink href="#">Privacy</FooterLink>
-              <FooterLink href="#">Terms</FooterLink>
-              <FooterLink href="mailto:hello@autmzr.com">Contact</FooterLink>
+            <FooterCol title={t('columns.legal')}>
+              <FooterLink href="#">{t('links.privacy')}</FooterLink>
+              <FooterLink href="#">{t('links.terms')}</FooterLink>
+              <FooterLink href="mailto:hello@autmzr.com">{t('links.contact')}</FooterLink>
             </FooterCol>
           </div>
         </div>
@@ -81,17 +63,11 @@ export default function Footer() {
           className="mt-10 flex flex-col items-start justify-between gap-3 border-t pt-6 sm:flex-row sm:items-center"
           style={{ borderColor: 'var(--border)' }}
         >
-          <p
-            className="font-mono text-[11.5px]"
-            style={{ color: 'var(--muted)' }}
-          >
-            Made with ☕ in {new Date().getFullYear()} · AGPL-3.0
+          <p className="font-mono text-[11.5px]" style={{ color: 'var(--muted)' }}>
+            {t('made', { year })}
           </p>
-          <p
-            className="font-mono text-[11.5px]"
-            style={{ color: 'var(--muted)' }}
-          >
-            v0.1.0
+          <p className="font-mono text-[11.5px]" style={{ color: 'var(--muted)' }}>
+            {t('version')}
           </p>
         </div>
       </div>
@@ -99,13 +75,7 @@ export default function Footer() {
   );
 }
 
-function FooterCol({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
       <h4
