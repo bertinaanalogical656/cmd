@@ -18,7 +18,7 @@ export default function Hero() {
         style={{ background: 'var(--vibrant-tint)' }}
       />
 
-      <nav className="relative z-10 mx-auto flex w-full max-w-[1100px] items-center justify-between px-6 py-5">
+      <nav className="relative z-30 mx-auto flex w-full max-w-[1100px] items-center justify-between px-6 py-5">
         <div className="flex items-center gap-2">
           <div
             className="flex h-7 w-7 items-center justify-center rounded-lg"
