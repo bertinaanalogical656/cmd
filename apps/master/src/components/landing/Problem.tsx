@@ -1,27 +1,27 @@
 'use client';
 
-import { Laptop2, Clock, Layers, MessageSquareDashed } from 'lucide-react';
+import { Lightbulb, AlarmClock, CreditCard, Bot } from 'lucide-react';
 
 const PROBLEMS = [
   {
-    icon: Laptop2,
-    title: 'Close the lid, kill the agent.',
-    body: 'Step away from your desk and your AI session dies with it. Long tasks need a machine that never sleeps.',
+    icon: Lightbulb,
+    title: 'Idea hits in transit.',
+    body: 'You jot down "do it tonight" — by night you don’t even remember why.',
   },
   {
-    icon: Clock,
-    title: 'Always-on work, sometimes-on hardware.',
-    body: 'Refactoring 50 files or running an overnight build shouldn\u2019t depend on whether your laptop dozes off at 11pm.',
+    icon: AlarmClock,
+    title: 'Prod breaks at 2am.',
+    body: 'Time to dig out the laptop, SSH in, debug by hand — long after you should be sleeping.',
   },
   {
-    icon: Layers,
-    title: 'One workflow, three machines.',
-    body: 'Work laptop, home server, cheap VPS \u2014 each with its own context. Switching between them is a part-time job.',
+    icon: CreditCard,
+    title: 'One $200 sub, three servers.',
+    body: 'You bought a CLI subscription. You have three servers. It only runs on one of them.',
   },
   {
-    icon: MessageSquareDashed,
-    title: 'Phones can\u2019t SSH like humans.',
-    body: 'You had an idea on the subway. The agent asked a question over lunch. By the time you\u2019re back at the keyboard, the moment is gone.',
+    icon: Bot,
+    title: 'Telegram bots fall over.',
+    body: 'They crash, lose context, die after 5 minutes mid-task — and pretend they finished with a fake "✅ done".',
   },
 ];
 
@@ -42,9 +42,7 @@ export default function Problem() {
           <h2
             className="text-[28px] font-semibold leading-[1.15] tracking-tight sm:text-[36px] md:text-[44px]"
           >
-            Why does your dev setup
-            <br className="hidden sm:block" />{' '}
-            <span style={{ color: 'var(--muted)' }}>hate mobile?</span>
+            Sound familiar?
           </h2>
         </div>
 

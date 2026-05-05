@@ -23,24 +23,24 @@ export default function Footer() {
                 <Terminal size={15} strokeWidth={2.4} />
               </div>
               <span className="text-[15px] font-semibold tracking-tight">
-                Autmzr Command
+                Autmzr
               </span>
             </div>
             <p
               className="mt-3 text-[13px] leading-[1.55]"
               style={{ color: 'var(--fg-2)' }}
             >
-              Part of the Autmzr family — automation tools for builders.
+              All your VPS and CLIs in one mobile interface.
             </p>
           </div>
 
           {/* Link columns */}
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:gap-12">
             <FooterCol title="Product">
-              <FooterLink href="/">Sign in</FooterLink>
-              <FooterLink href="#pricing">Pricing</FooterLink>
+              <FooterLink href="/login">Sign in</FooterLink>
+              <FooterLink href="/#pricing">Pricing</FooterLink>
               <FooterLink
-                href="https://github.com/autmzr/autmzr-command"
+                href="https://github.com/autmzr/cmd"
                 external
               >
                 <span className="inline-flex items-center gap-1.5">
@@ -51,19 +51,19 @@ export default function Footer() {
             </FooterCol>
             <FooterCol title="Resources">
               <FooterLink
-                href="https://github.com/autmzr/autmzr-command#readme"
+                href="https://github.com/autmzr/cmd#readme"
                 external
               >
                 Docs
               </FooterLink>
               <FooterLink
-                href="https://github.com/autmzr/autmzr-command/issues"
+                href="https://github.com/autmzr/cmd/issues"
                 external
               >
                 Report a bug
               </FooterLink>
               <FooterLink
-                href="https://github.com/autmzr/autmzr-command/releases"
+                href="https://github.com/autmzr/cmd/releases"
                 external
               >
                 Changelog
@@ -85,7 +85,7 @@ export default function Footer() {
             className="font-mono text-[11.5px]"
             style={{ color: 'var(--muted)' }}
           >
-            Made by Autmzr · MIT License · {new Date().getFullYear()}
+            Made with ☕ in {new Date().getFullYear()} · AGPL-3.0
           </p>
           <p
             className="font-mono text-[11.5px]"

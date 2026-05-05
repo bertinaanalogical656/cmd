@@ -1,44 +1,44 @@
 'use client';
 
 import {
-  Globe,
-  Smartphone,
-  RefreshCw,
+  Server,
+  Clock,
+  Mic,
   Plug2,
   ShieldCheck,
-  Zap,
+  Layers,
 } from 'lucide-react';
 
 const FEATURES = [
   {
-    icon: Globe,
-    title: 'Multi-device',
-    body: 'Servers, laptops, mac minis \u2014 all under one dashboard. Switch context with a tap.',
+    icon: Server,
+    title: 'One CLI, every server',
+    body: 'Plug a CLI into one box — it works across the rest through a built-in proxy. One subscription instead of three.',
   },
   {
-    icon: Smartphone,
-    title: 'Mobile-first UI',
-    body: 'Built for one-handed use on a phone. The desktop just gets the same UI, wider.',
+    icon: Clock,
+    title: 'Async — fire and forget',
+    body: 'Kick off a task, close the app, walk away. The agent keeps running on your server for as long as needed.',
   },
   {
-    icon: RefreshCw,
-    title: 'Resume anywhere',
-    body: 'Close a tab, open another. Your conversation, files, and tool calls stay exactly where they were.',
+    icon: Mic,
+    title: 'Voice input',
+    body: 'Typing long prompts on a phone is painful. Hold the mic, dictate, send. Audio stays in your browser.',
   },
   {
     icon: Plug2,
-    title: 'Multi-agent',
-    body: 'Claude Code today. Aider, Gemini CLI, Codex coming next. Same chat, different brains.',
+    title: 'Multi-vendor',
+    body: 'Claude Code and Gemini CLI today. Codex, Aider, Cursor CLI on the roadmap. Same UI, different brains.',
   },
   {
     icon: ShieldCheck,
-    title: 'Your subscription',
-    body: 'We never see your API keys or OAuth tokens. Auth stays on your device, on your terms.',
+    title: 'Your keys, your servers',
+    body: 'OAuth tokens, API keys, agent context — all stay in your infrastructure. No third-party broker, ever.',
   },
   {
-    icon: Zap,
-    title: '5-minute setup',
-    body: 'One curl. One web sign-in. No Docker compose files to debug at 2am.',
+    icon: Layers,
+    title: 'Multi-project',
+    body: 'Any number of projects on any number of servers, all in one mobile dashboard. Switch context with a tap.',
   },
 ];
 
@@ -54,10 +54,10 @@ export default function Features() {
             className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em]"
             style={{ color: 'var(--vibrant)' }}
           >
-            Features
+            What it does
           </p>
           <h2 className="text-[28px] font-semibold leading-[1.15] tracking-tight sm:text-[36px] md:text-[44px]">
-            Built for the way you actually code now.
+            Built for the way you actually work now.
           </h2>
         </div>
 

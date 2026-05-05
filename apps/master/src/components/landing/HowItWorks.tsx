@@ -1,6 +1,6 @@
 'use client';
 
-import { Plug, Smartphone, MessageCircle } from 'lucide-react';
+import { Download, Plug, Smartphone } from 'lucide-react';
 
 export default function HowItWorks() {
   return (
@@ -17,47 +17,47 @@ export default function HowItWorks() {
             How it works
           </p>
           <h2 className="text-[28px] font-semibold leading-[1.15] tracking-tight sm:text-[36px] md:text-[44px]">
-            From zero to chatting in five minutes.
+            Three steps and you’re running.
           </h2>
           <p
             className="mx-auto mt-4 max-w-[520px] text-[14.5px] leading-[1.55]"
             style={{ color: 'var(--fg-2)' }}
           >
-            One curl on each machine. One web app to rule them.
+            One curl on each box, one web app on every screen.
           </p>
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3 md:gap-6">
           <Step
             number={1}
-            icon={Plug}
-            title="Connect"
-            body="Run a single curl on any VPS, mac mini, or work laptop. The agent installs as a systemd / launchd service."
+            icon={Download}
+            title="Install on any server"
+            body="One curl. Self-host on your own VPS — free forever, no telemetry, no limits."
           >
             <CodeBlock>
               <span style={{ color: 'var(--muted)' }}>$ </span>
-              curl -sSL pocket.app/connect.sh | bash
+              curl https://cmd.autmzr.com/install | bash
               {'\n'}
               <span style={{ color: 'var(--ok)' }}>
-                {'->'} home-mac connected
+                {'->'} master ready on https://your-domain
               </span>
             </CodeBlock>
           </Step>
 
           <Step
             number={2}
-            icon={Smartphone}
-            title="Open"
-            body="Sign in from your phone\u2019s browser. Every device you registered shows up in one list \u2014 online or off."
+            icon={Plug}
+            title="Plug in your CLIs"
+            body="Install Claude Code, Gemini CLI or any other agent on your servers. Authenticate once — then drive everything from the app."
           >
             <DeviceList />
           </Step>
 
           <Step
             number={3}
-            icon={MessageCircle}
-            title="Command"
-            body="Pick a device, send a task. The agent runs 24/7 on your hardware, streams every keystroke back."
+            icon={Smartphone}
+            title="Open it on your phone"
+            body="All your VPS and projects in one place. Kick off tasks, monitor progress, dictate prompts by voice."
           >
             <ChatPreview />
           </Step>
@@ -133,9 +133,9 @@ function CodeBlock({ children }: { children: React.ReactNode }) {
 
 function DeviceList() {
   const devices = [
-    { name: 'home-mac', status: 'ok', label: 'online' },
-    { name: 'vps-fra-1', status: 'ok', label: 'online' },
-    { name: 'work-laptop', status: 'muted', label: 'sleeping' },
+    { name: 'prod-fra-1', status: 'ok', label: 'claude · online' },
+    { name: 'home-mac', status: 'ok', label: 'gemini · online' },
+    { name: 'staging-vps', status: 'muted', label: 'offline' },
   ];
   return (
     <div
@@ -182,7 +182,7 @@ function ChatPreview() {
           color: 'var(--bg)',
         }}
       >
-        Add error handling to the upload route
+        Roll back the last deploy on prod-fra-1
       </div>
       <div
         className="max-w-[90%] rounded-2xl rounded-tl-md border px-3 py-2 text-[12.5px] leading-[1.5]"
@@ -191,8 +191,8 @@ function ChatPreview() {
           borderColor: 'var(--border)',
         }}
       >
-        On it. Wrapping with try/catch and logging via{' '}
-        <code className="font-mono">pino</code>.
+        On it. Reverting to <code className="font-mono">v1.4.2</code>{' '}
+        and re-running migrations. I’ll keep going if you close the app.
       </div>
     </div>
   );

@@ -17,10 +17,11 @@ export default function Pricing() {
             Run it yourself, or let us run it for you.
           </h2>
           <p
-            className="mx-auto mt-4 max-w-[520px] text-[14.5px] leading-[1.55]"
+            className="mx-auto mt-4 max-w-[560px] text-[14.5px] leading-[1.55]"
             style={{ color: 'var(--fg-2)' }}
           >
-            Same software either way. Pick what fits your weekend.
+            Honest note: this is built by one person. Self-host is free forever
+            with no feature-gating. The hosted tier is how the project gets maintained.
           </p>
         </div>
 
@@ -35,7 +36,7 @@ export default function Pricing() {
           >
             <div className="flex items-center justify-between">
               <h3 className="text-[18px] font-semibold tracking-tight">
-                Self-hosted
+                Self-host
               </h3>
               <span
                 className="rounded-full border px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-wider"
@@ -44,7 +45,7 @@ export default function Pricing() {
                   color: 'var(--muted)',
                 }}
               >
-                MIT
+                AGPL-3.0
               </span>
             </div>
             <div className="mt-3 flex items-baseline gap-1.5">
@@ -63,15 +64,15 @@ export default function Pricing() {
             </p>
 
             <ul className="mt-6 space-y-2.5 text-[13.5px]">
-              <Bullet>Full open-source codebase (MIT)</Bullet>
-              <Bullet>Unlimited devices</Bullet>
-              <Bullet>Unlimited messages and projects</Bullet>
-              <Bullet>Docker compose + systemd ready</Bullet>
+              <Bullet>Every feature, no limits</Bullet>
+              <Bullet>Any number of servers, projects, CLIs</Bullet>
+              <Bullet>Your domain, your data, your backups</Bullet>
+              <Bullet>No telemetry, ever</Bullet>
               <Bullet>Community support on GitHub</Bullet>
             </ul>
 
             <a
-              href="https://github.com/autmzr/autmzr-command"
+              href="https://github.com/autmzr/cmd"
               target="_blank"
               rel="noreferrer"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-[13.5px] font-semibold transition-colors"
@@ -102,11 +103,11 @@ export default function Pricing() {
                 color: 'var(--vibrant-fg)',
               }}
             >
-              Recommended
+              Easiest
             </div>
             <div className="flex items-center justify-between">
               <h3 className="text-[18px] font-semibold tracking-tight">
-                Hosted
+                Cloud
               </h3>
               <span
                 className="rounded-full border px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-wider"
@@ -115,12 +116,12 @@ export default function Pricing() {
                   color: 'var(--vibrant)',
                 }}
               >
-                SaaS
+                Hosted
               </span>
             </div>
             <div className="mt-3 flex items-baseline gap-1.5">
               <span className="text-[40px] font-semibold tracking-tight">
-                $5
+                $4.99
               </span>
               <span className="text-[13px]" style={{ color: 'var(--muted)' }}>
                 / month
@@ -130,36 +131,36 @@ export default function Pricing() {
               className="mt-2 text-[13px] leading-[1.5]"
               style={{ color: 'var(--fg-2)' }}
             >
-              We run the master. You connect your servers.
+              We host the master. You connect your servers.
             </p>
 
             <ul className="mt-6 space-y-2.5 text-[13.5px]">
-              <Bullet>Everything in self-hosted</Bullet>
-              <Bullet>Managed master with SSL out of the box</Bullet>
-              <Bullet>Auto-updates on every release</Bullet>
-              <Bullet>99.9% uptime target</Bullet>
-              <Bullet>Email support within 24h</Bullet>
+              <Bullet>Everything in self-host</Bullet>
+              <Bullet>Auto-updates with every release</Bullet>
+              <Bullet>Session backups</Bullet>
+              <Bullet>Email/Telegram support</Bullet>
+              <Bullet>14 days free, no card required</Bullet>
             </ul>
 
             <a
-              href="/"
+              href="/login"
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[13.5px] font-semibold transition-colors"
               style={{
                 background: 'var(--vibrant)',
                 color: 'var(--vibrant-fg)',
               }}
             >
-              Start free trial
+              Try it free
               <ArrowRight size={15} />
             </a>
           </div>
         </div>
 
         <p
-          className="mx-auto mt-8 max-w-[520px] text-center font-mono text-[11.5px]"
+          className="mx-auto mt-8 max-w-[560px] text-center font-mono text-[11.5px]"
           style={{ color: 'var(--muted)' }}
         >
-          Either way, you bring your own AI subscription. We don&rsquo;t resell access.
+          Either way, your Claude/Gemini key or subscription stays yours. We don’t resell anyone’s tokens.
         </p>
       </div>
     </section>

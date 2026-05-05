@@ -5,90 +5,102 @@ import { Plus, Minus } from 'lucide-react';
 
 const QUESTIONS: { q: string; a: React.ReactNode }[] = [
   {
-    q: 'Is this safe? You’re running on my servers.',
+    q: 'Is it secure? Where do my API keys go?',
     a: (
       <>
         <p>
-          The whole codebase is MIT and on GitHub — inspect every line. The agent
-          we install on your machine is a single Node script that talks to the
-          master over WebSocket. It never reads your{' '}
-          <code className="font-mono">~/.claude/</code> directory or touches
-          your OAuth tokens.
+          Nowhere. In self-host they live only in your Postgres DB and never
+          leave your infrastructure. In the cloud version they’re encrypted in
+          our DB and only decrypted at the moment an agent starts.
         </p>
         <p>
-          For the hosted plan, the same code runs on our box — the difference
-          is who pays the SSL bill.
+          The agent on your server physically can’t read{' '}
+          <code className="font-mono">~/.claude/*</code> — that’s blocked at the
+          protocol layer. Open source under AGPL-3.0 — verify it yourself.
         </p>
       </>
     ),
   },
   {
-    q: 'Which AI tools are supported?',
+    q: 'Does it work without a VPN?',
     a: (
       <>
         <p>
-          Anthropic’s Claude Code CLI is shipping today. Aider, Gemini CLI,
-          Codex CLI, and Cursor-Agent are next on the roadmap. If a tool runs in
-          a terminal and speaks streaming JSON, we can probably wire it up.
+          Yes. Self-host on your own VPS — the UI talks directly to your
+          server. The cloud version is also accessible without a VPN.
+        </p>
+        <p>
+          One caveat: Google geo-blocks Gemini CLI for some regions. If your
+          server isn’t in a blocked region, Gemini works fine. Nothing happens
+          on the device side — the call goes server ↔ Anthropic / Google.
         </p>
       </>
     ),
   },
   {
-    q: 'Can I use one Claude Pro subscription across multiple devices?',
+    q: 'Which CLIs are supported?',
     a: (
       <>
         <p>
-          Yes — because each device runs its own{' '}
-          <code className="font-mono">claude</code> CLI bound to your account.
-          Anthropic’s rate limits still apply per subscription, so don’t expect
-          to triple your throughput. But you do get to start a task on the VPS
-          and finish it on the laptop without re-authenticating.
+          Today: <strong>Claude Code</strong> and <strong>Gemini CLI</strong>{' '}
+          in production.
+        </p>
+        <p>
+          In progress: Codex CLI (OpenAI), Aider, Cursor CLI. Want to add your
+          own? Open an issue or a PR — the architecture is extensible by design.
         </p>
       </>
     ),
   },
   {
-    q: 'What if my server goes down?',
+    q: 'How is this different from Anthropic Remote Control?',
     a: (
       <>
         <p>
-          That device shows up offline in the UI. Your other devices keep
-          working. Conversations stay on whichever machine ran them — they
-          come back when the device comes back.
+          Anthropic is bound to Claude only and to an Anthropic subscription.
+          Autmzr supports any CLI, any server, no vendor lock-in. Plus we’re
+          self-hostable — Anthropic Remote Control runs only through their
+          infrastructure.
         </p>
         <p>
-          On the hosted plan, the master itself is replicated. Your devices are
-          your problem, but the dashboard always works.
+          If Claude on a single device is enough for you, Anthropic Remote
+          Control is fine. If you have multiple servers or want other CLIs,
+          that’s where we come in.
         </p>
       </>
     ),
   },
   {
-    q: 'How is this different from Cursor, Replit, or GitHub Codespaces?',
+    q: 'Do I need to expose ports on my servers?',
     a: (
       <>
         <p>
-          They sell you compute — their VMs, their bill. We sell you a remote
-          control. You already have a laptop, a home server, a $4/mo VPS:
-          Autmzr Command turns them into your distributed AI workstation.
-        </p>
-        <p>
-          You also keep your existing Claude Pro / Max / API key. No double
-          subscriptions.
+          No. The agent initiates an outbound WebSocket connection to the
+          master — nothing inbound, no exposed ports, no Cloudflare tunnel
+          required.
         </p>
       </>
     ),
   },
   {
-    q: 'When is the mobile app coming?',
+    q: 'What happens to my task if the agent disconnects?',
     a: (
       <>
         <p>
-          The web app is mobile-first by design — install it from your browser
-          to your home screen and it behaves like one. A native iOS / Android
-          shell is on the v0.3 roadmap, mostly for push notifications when the
-          agent needs your attention.
+          The task keeps running on your server. When the device comes back
+          online, you see the buffered output and current state. Unlike Telegram
+          bots that die at the 5-minute mark with a fake “✅ done”.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: 'What about teams?',
+    a: (
+      <>
+        <p>
+          Right now: single user, single infrastructure. Teams, SSO, audit log
+          and RBAC are on the roadmap, not today.
         </p>
       </>
     ),

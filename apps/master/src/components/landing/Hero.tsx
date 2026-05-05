@@ -25,12 +25,12 @@ export default function Hero() {
             <Terminal size={15} strokeWidth={2.4} />
           </div>
           <span className="text-[15px] font-semibold tracking-tight">
-            Autmzr Command
+            Autmzr
           </span>
         </div>
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com/autmzr/autmzr-command"
+            href="https://github.com/autmzr/cmd"
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost text-[12.5px]"
@@ -38,7 +38,7 @@ export default function Hero() {
             <Github size={14} />
             <span className="hidden sm:inline">GitHub</span>
           </a>
-          <a href="/" className="btn btn-secondary text-[12.5px]">
+          <a href="/login" className="btn btn-secondary text-[12.5px]">
             Sign in
           </a>
         </div>
@@ -59,41 +59,41 @@ export default function Hero() {
               className="inline-block h-1.5 w-1.5 rounded-full"
               style={{ background: 'var(--ok)' }}
             />
-            v0.1 · open-source · MIT
+            v0.1 · open-source · AGPL-3.0
           </div>
 
           <h1
             className="text-[36px] font-semibold leading-[1.05] tracking-tight sm:text-[52px] md:text-[64px]"
             style={{ color: 'var(--fg)' }}
           >
-            Your AI command center.
+            All your VPS and CLIs
             <br />
-            <span style={{ color: 'var(--vibrant)' }}>In your pocket.</span>
+            <span style={{ color: 'var(--vibrant)' }}>in one mobile interface.</span>
           </h1>
 
           <p
-            className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.6] sm:text-[17px]"
+            className="mx-auto mt-6 max-w-[680px] text-[15px] leading-[1.6] sm:text-[17px]"
             style={{ color: 'var(--fg-2)' }}
           >
-            Run Claude Code, Aider, and other AI agents on your own servers.
-            Drive them all from one phone-friendly chat. One subscription, every
-            device, anywhere you happen to be.
+            Plug any CLI into one server — and use it across all the others. Ship
+            a deploy from a cab, check prod logs in the coffee line, fix a config
+            from the couch — by voice.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
             <a
-              href="/"
+              href="/login"
               className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[14px] font-semibold transition-colors"
               style={{
                 background: 'var(--vibrant)',
                 color: 'var(--vibrant-fg)',
               }}
             >
-              Try free
+              Try the cloud version
               <ArrowRight size={16} />
             </a>
             <a
-              href="https://github.com/autmzr/autmzr-command"
+              href="https://github.com/autmzr/cmd"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-[14px] font-semibold transition-colors"
@@ -112,7 +112,7 @@ export default function Hero() {
             className="mt-5 text-[12px] font-mono"
             style={{ color: 'var(--muted)' }}
           >
-            Open-source · MIT · Self-hosted or $5/mo hosted
+            Open source for self-host · Mobile-first · Voice input
           </p>
         </div>
 
@@ -181,9 +181,9 @@ function FakeChatUI() {
             className="h-2 w-2 rounded-full"
             style={{ background: 'var(--ok)' }}
           />
-          <span className="text-[12px] font-medium">home-mac</span>
+          <span className="text-[12px] font-medium">prod-fra-1</span>
           <span className="text-[11px]" style={{ color: 'var(--muted)' }}>
-            · autmzr-command
+            · checkout-api
           </span>
         </div>
         <span className="font-mono text-[10px]" style={{ color: 'var(--muted)' }}>
@@ -194,22 +194,22 @@ function FakeChatUI() {
       {/* Messages */}
       <div className="flex-1 space-y-3 overflow-hidden p-4">
         <Bubble role="user">
-          Refactor the auth flow into a hook
+          Ship the dark-mode PR to staging
         </Bubble>
         <Bubble role="assistant">
-          <p className="m-0">Looking at <code className="font-mono">AuthScreen.tsx</code>. I&rsquo;ll extract:</p>
+          <p className="m-0">Running on <code className="font-mono">prod-fra-1</code>:</p>
           <ul className="mt-1.5 list-disc space-y-0.5 pl-4">
-            <li><code className="font-mono">useAuth()</code> — state + submit</li>
-            <li><code className="font-mono">useInviteCode()</code> — URL parse</li>
+            <li>merge <code className="font-mono">feat/dark-mode</code></li>
+            <li>build &amp; deploy to <code className="font-mono">staging</code></li>
           </ul>
         </Bubble>
         <Bubble role="tool">
           <span className="font-mono text-[10.5px]">
-            edit · src/hooks/useAuth.ts · +47 -3
+            shell · pnpm deploy:staging · running…
           </span>
         </Bubble>
         <Bubble role="assistant">
-          <p className="m-0 text-[12.5px]">Done. Tests pass. Want me to wire it into the page?</p>
+          <p className="m-0 text-[12.5px]">Deployed. Smoke tests green. Closing the app — agent will keep going.</p>
         </Bubble>
       </div>
 
@@ -229,7 +229,7 @@ function FakeChatUI() {
             className="text-[12.5px]"
             style={{ color: 'var(--muted)' }}
           >
-            Reply to claude…
+            Reply or hold mic to speak…
           </span>
           <span className="ml-auto typing-dots">
             <span /><span /><span />
