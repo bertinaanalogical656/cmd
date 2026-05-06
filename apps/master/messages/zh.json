@@ -7,9 +7,9 @@
     "badge": "v0.1 · open-source · AGPL-3.0",
     "title": "所有 VPS 和 CLI",
     "titleAccent": "都装进一个手机端。",
-    "lede": "把任意一个 CLI 接到一台服务器上 — 就能在所有其他服务器上用。在出租车里发部署、排队买咖啡时看日志、躺沙发上用语音改配置。",
-    "ctaCloud": "试用云端版",
-    "ctaGithub": "在 GitHub 上 Star",
+    "lede": "一份 CLI 订阅,所有服务器通用。任何地方语音操作 — 你的手机就是 IDE。",
+    "ctaCloud": "免费开始 — 14 天,无需信用卡",
+    "ctaGithub": "⭐ 在 GitHub 上 Star",
     "metaLine": "开源,可自托管 · 移动端优先 · 语音输入",
     "mockup": {
       "deviceName": "prod-fra-1",
@@ -44,6 +44,10 @@
         "title": "Telegram 机器人不靠谱。",
         "body": "经常崩溃、丢上下文、5 分钟超时 — 还假装\"✅ 完成\"。"
       }
+    },
+    "cta": {
+      "text": "听起来就是你的一周?",
+      "button": "免费试用 Autmzr →"
     }
   },
   "howItWorks": {
@@ -119,20 +123,36 @@
       "bullet5": "GitHub 上的社区支持",
       "cta": "下载代码"
     },
-    "cloud": {
-      "name": "云端版",
+    "pro": {
+      "name": "Pro",
       "tag": "Hosted",
-      "badge": "最简单",
-      "price": "$4.99",
+      "badge": "最受欢迎",
+      "price": "$19",
       "period": "/ 月",
-      "blurb": "我们托管 master。你接入自己的服务器。",
-      "bullet1": "自托管的全部功能",
-      "bullet2": "每次发布自动更新",
-      "bullet3": "会话备份",
-      "bullet4": "Email/Telegram 支持",
+      "priceYearly": "或 $190/年 — 节省 $38(2 个月免费)",
+      "blurb": "我们托管 master。你带服务器、key 和 CLI。",
+      "bullet1": "无限服务器、无限项目",
+      "bullet2": "语音模式 + Claude Code 与 Gemini CLI 全集成",
+      "bullet3": "自动更新与会话备份",
+      "bullet4": "Email + Telegram 支持",
       "bullet5": "14 天免费,无需信用卡",
-      "cta": "免费试用"
+      "cta": "免费开始"
     },
+    "team": {
+      "name": "Team",
+      "tag": "Q3 2026",
+      "badge": "即将推出",
+      "price": "$49",
+      "period": "/ 席位 / 月",
+      "blurb": "Pro 的全部功能,加上面向小团队的共享基础设施。",
+      "bullet1": "团队内项目共享",
+      "bullet2": "每个 agent 操作的审计日志",
+      "bullet3": "SSO(Google、GitHub、Microsoft)",
+      "bullet4": "基于角色的权限(admin / dev / viewer)",
+      "bullet5": "优先级支持",
+      "cta": "上线时通知我"
+    },
+    "lockInNote": "无 vendor lock。随时取消。随时导出数据。随时切换到自托管。",
     "footer": "两个版本,你的 Claude/Gemini key 或订阅永远是你自己的。我们不倒卖任何人的 token。"
   },
   "faq": {
@@ -141,8 +161,8 @@
     "items": {
       "security": {
         "q": "安全吗?我的 API key 跑去哪了?",
-        "a1": "哪都没去。自托管模式下只在你自己的 Postgres 数据库里,从不离开你的基础设施。云端版本里在我们数据库里加密存储,只在 agent 启动那一刻解密。",
-        "a2": "服务器上的 agent 物理上读不了 ~/.claude/* — 这是协议层面的硬限制。AGPL-3.0 开源 — 自己审查代码。"
+        "a1": "你的 secret 留在你的基础设施里。就这样。在 <strong>自托管</strong> 模式:key 存在你的 Postgres 里,从不离开你的网络。我们物理上看不到。在 <strong>云端</strong>:key 用 libsodium sealed boxes 静态加密,只在 agent 启动任务那一刻解密。连我们的 DBA 都读不到。",
+        "a2": "服务器上的 agent 跑在 sandboxed namespace。它物理上访问不了 <code>~/.claude/*</code>,也读不到其他进程的内存。自己审查代码 — 每一行都在 AGPL-3.0 下开源。"
       },
       "noVpn": {
         "q": "中国大陆能用吗?需要 VPN 吗?",
@@ -189,9 +209,10 @@
       "changelog": "Changelog",
       "privacy": "隐私",
       "terms": "条款",
+      "telegram": "Telegram",
       "contact": "联系"
     },
-    "made": "Made with ☕ in {year} · AGPL-3.0",
+    "made": "Made with ☕ in {year} by a solo developer · AGPL-3.0",
     "version": "v0.1.0"
   },
   "showcase": {
@@ -227,8 +248,8 @@
       "trialUntilDate": "2026 年 5 月 9 日",
       "limitLabel": "限额",
       "limitValue": "5 台设备",
-      "upgradeCta": "✦ 升级到 Personal — $4.99/月",
-      "subscriptionTagline": "Personal — $4.99/月。最多 5 台设备,无限项目,所有聊天记录保留。"
+      "upgradeCta": "✦ 升级到 Pro — $19/月",
+      "subscriptionTagline": "Pro — $19/月。无限服务器、无限项目、语音模式、Claude Code 与 Gemini 全集成。"
     }
   },
   "billing": {
@@ -238,7 +259,7 @@
     "selfHostedBody": "所有功能解锁,无限制。",
     "adminTitle": "管理员",
     "trial": "试用 (14 天)",
-    "personal": "个人",
+    "personal": "Pro",
     "team": "团队",
     "cancelled": "已取消",
     "free": "免费",
@@ -249,10 +270,10 @@
     "trialUntil": "试用到",
     "validUntil": "有效期至",
     "deviceLimit": "设备限制",
-    "upgradeFromTrial": "升级到 Personal — $4.99/月",
+    "upgradeFromTrial": "升级到 Pro — $19/月",
     "manageSubscription": "管理订阅",
     "renew": "续订",
-    "tagline": "Personal — $4.99/月。最多 5 台设备,无限项目,所有聊天记录保留。",
+    "tagline": "Pro — $19/月。无限服务器、无限项目、语音模式、Claude Code 与 Gemini 全集成。",
     "comingSoonTitle": "支付即将上线",
     "comingSoonBody": "正在集成支付提供商。Beta 期间所有用户保持试用。计费上线后我们会发邮件到 {email}。",
     "comingSoonOk": "知道了"
@@ -277,19 +298,25 @@
   },
   "auth": {
     "appName": "Autmzr Command",
-    "createAdmin": "创建管理员账户",
-    "signInTitle": "登录",
-    "signUpTitle": "注册",
+    "subtitleSetup": "创建管理员账户",
+    "subtitleSignup": "凭邀请码注册",
+    "subtitleSignin": "登录你的账户",
     "name": "姓名",
+    "namePlaceholder": "Alex",
     "email": "邮箱",
+    "emailPlaceholder": "you@example.com",
     "password": "密码",
     "inviteCode": "邀请码",
+    "invitePlaceholder": "管理员给的邀请码",
     "passwordHint": "最少 8 个字符 · 字母 + 数字",
-    "submitSignIn": "登录",
-    "submitSignUp": "创建并登录",
-    "switchToSignIn": "已有账户? 登录",
-    "switchToSignUp": "需要账户? 注册",
-    "footer": "自托管 · AGPL-3.0 · 连接你自己的服务器"
+    "submitSetup": "创建并登录",
+    "submitSignup": "注册",
+    "submitSignin": "登录",
+    "switchToSignup": "有邀请码?注册",
+    "switchToSignin": "← 用已有账户登录",
+    "footer": "自托管 · AGPL-3.0 · 连接你自己的服务器",
+    "loading": "加载中…",
+    "errorFallback": "错误 {status}"
   },
   "fileEditor": {
     "unsaved": "未保存",

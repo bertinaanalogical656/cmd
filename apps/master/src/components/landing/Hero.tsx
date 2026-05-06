@@ -4,6 +4,16 @@ import { ArrowRight, Github, Terminal } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import LocaleSwitch from '@/components/LocaleSwitch';
 
+/**
+ * Hero — conditional показ:
+ *  - если задан NEXT_PUBLIC_HERO_VIDEO_URL → embed видео (YouTube/Loom/iframe или direct .mp4)
+ *  - если URL пустой → fallback на PhoneMockup (живое демо UI приложения)
+ *
+ * Установи env-переменную в .env (NEXT_PUBLIC_HERO_VIDEO_URL=https://www.youtube.com/embed/XXX)
+ * и при следующем deploy hero автоматически переключится на видео.
+ */
+const HERO_VIDEO_URL = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || '';
+
 export default function Hero() {
   const t = useTranslations('hero');
   const tnav = useTranslations('nav');
@@ -14,8 +24,8 @@ export default function Hero() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
-        style={{ background: 'var(--vibrant-tint)' }}
+        className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[960px] -translate-x-1/2 rounded-full blur-2xl"
+        style={{ background: 'var(--hero-glow)' }}
       />
 
       <nav className="relative z-30 mx-auto flex w-full max-w-[1100px] items-center justify-between px-6 py-5">
@@ -117,10 +127,44 @@ export default function Hero() {
         </div>
 
         <div className="mt-16 flex justify-center sm:mt-20">
-          <PhoneMockup />
+          {HERO_VIDEO_URL ? <HeroVideo url={HERO_VIDEO_URL} /> : <PhoneMockup />}
         </div>
       </div>
     </section>
+  );
+}
+
+function HeroVideo({ url }: { url: string }) {
+  const isDirectVideo = /\.(mp4|webm|mov)(\?|$)/i.test(url);
+  return (
+    <div
+      className="relative w-full max-w-[860px] overflow-hidden rounded-[var(--radius-lg)] border"
+      style={{
+        background: 'var(--surface)',
+        borderColor: 'var(--border)',
+        boxShadow: 'var(--shadow-soft)',
+        aspectRatio: '16 / 9',
+      }}
+    >
+      {isDirectVideo ? (
+        <video
+          src={url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <iframe
+          src={url}
+          title="Autmzr demo"
+          className="absolute inset-0 h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      )}
+    </div>
   );
 }
 

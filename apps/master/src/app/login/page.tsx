@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import AuthScreen from '@/components/AuthScreen';
 
 export default function LoginPage() {
+  const t = useTranslations('auth');
   const router = useRouter();
   const [needSetup, setNeedSetup] = useState(false);
   const [state, setState] = useState<'loading' | 'show'>('loading');
@@ -26,7 +28,7 @@ export default function LoginPage() {
   if (state === 'loading') {
     return (
       <div className="h-dvh flex items-center justify-center" style={{ background: 'var(--bg)' }}>
-        <div className="text-sm" style={{ color: 'var(--muted)' }}>Loading…</div>
+        <div className="text-sm" style={{ color: 'var(--muted)' }}>{t('loading')}</div>
       </div>
     );
   }

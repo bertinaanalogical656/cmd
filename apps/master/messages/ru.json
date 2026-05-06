@@ -7,9 +7,9 @@
     "badge": "v0.1 · open-source · AGPL-3.0",
     "title": "Все твои VPS и CLI",
     "titleAccent": "в одном мобильном интерфейсе.",
-    "lede": "Подключи любой CLI на одном сервере — и работай с ним на всех остальных. Запустил деплой из такси, проверил логи в очереди за кофе, поправил конфиг с дивана — голосом.",
-    "ctaCloud": "Попробовать облако",
-    "ctaGithub": "Star на GitHub",
+    "lede": "Одна подписка на CLI. Все твои серверы. Голосовое управление откуда угодно — твой телефон теперь IDE.",
+    "ctaCloud": "Начать бесплатно — 14 дней, без карты",
+    "ctaGithub": "⭐ Star на GitHub",
     "metaLine": "Open source для self-host · Mobile-first · Голосовой ввод",
     "mockup": {
       "deviceName": "prod-fra-1",
@@ -44,6 +44,10 @@
         "title": "Telegram-боты падают.",
         "body": "Падают, теряют контекст, умирают на 5-й минуте — и присылают фейковое «✅ выполнено»."
       }
+    },
+    "cta": {
+      "text": "Похоже на твою неделю?",
+      "button": "Попробовать Autmzr →"
     }
   },
   "howItWorks": {
@@ -119,20 +123,36 @@
       "bullet5": "Community support на GitHub",
       "cta": "Скачать код"
     },
-    "cloud": {
-      "name": "Cloud",
+    "pro": {
+      "name": "Pro",
       "tag": "Hosted",
-      "badge": "Проще всего",
-      "price": "$4.99",
+      "badge": "Популярный",
+      "price": "$19",
       "period": "/ мес",
-      "blurb": "Мы хостим master. Ты подключаешь свои серверы.",
-      "bullet1": "Всё что в self-host",
-      "bullet2": "Auto-updates на каждом релизе",
-      "bullet3": "Бэкапы сессий",
-      "bullet4": "Email/Telegram support",
+      "priceYearly": "или $190/год — выгода $38 (2 месяца бесплатно)",
+      "blurb": "Мы хостим master. Ты подключаешь свои серверы, ключи и CLI.",
+      "bullet1": "Без лимитов на серверы и проекты",
+      "bullet2": "Голосовой режим + полная интеграция Claude Code и Gemini CLI",
+      "bullet3": "Auto-updates и бэкапы сессий",
+      "bullet4": "Email + Telegram support",
       "bullet5": "14 дней бесплатно, без карты",
-      "cta": "Попробовать бесплатно"
+      "cta": "Начать бесплатно"
     },
+    "team": {
+      "name": "Team",
+      "tag": "Q3 2026",
+      "badge": "Скоро",
+      "price": "$49",
+      "period": "/ место / мес",
+      "blurb": "Всё что в Pro плюс общая инфраструктура для маленьких команд.",
+      "bullet1": "Шейринг проектов в команде",
+      "bullet2": "Audit log по каждому действию агента",
+      "bullet3": "SSO (Google, GitHub, Microsoft)",
+      "bullet4": "Роли (admin / dev / viewer)",
+      "bullet5": "Приоритетная поддержка",
+      "cta": "Сообщить о запуске"
+    },
+    "lockInNote": "Без vendor-lock. Отмена в любой момент. Экспорт данных в любой момент. Self-host в любой момент.",
     "footer": "В обоих случаях твой Claude/Gemini ключ или подписка остаётся твоим. Мы не перепродаём чужие токены."
   },
   "faq": {
@@ -141,8 +161,8 @@
     "items": {
       "security": {
         "q": "Это безопасно? Куда уходят мои API-ключи?",
-        "a1": "Никуда. В self-host они хранятся только в твоей Postgres-базе и не покидают твою инфраструктуру. В облачной версии — зашифрованы в нашей БД, расшифровываются только в момент запуска агента.",
-        "a2": "Агент на сервере физически не может прочитать ~/.claude/* — это заблокировано на уровне протокола. Open source под AGPL-3.0 — проверь сам."
+        "a1": "Твои секреты остаются в твоей инфраструктуре. Точка. В <strong>self-host</strong> ключи живут в твоём Postgres и не покидают твою сеть. Мы их физически не видим. В <strong>облаке</strong> ключи зашифрованы libsodium sealed boxes на диске и расшифровываются только в момент запуска задачи. Даже наш DBA не может их прочитать.",
+        "a2": "Агент на твоём сервере крутится в sandboxed namespace. Он физически не может прочитать <code>~/.claude/*</code> или память других процессов. Проверь сам — каждая строка открыта под AGPL-3.0."
       },
       "noVpn": {
         "q": "Работает без VPN?",
@@ -189,9 +209,10 @@
       "changelog": "Changelog",
       "privacy": "Приватность",
       "terms": "Условия",
+      "telegram": "Telegram",
       "contact": "Связаться"
     },
-    "made": "Сделано с ☕ в {year} · AGPL-3.0",
+    "made": "Сделано с ☕ в {year} соло-разработчиком · AGPL-3.0",
     "version": "v0.1.0"
   },
   "showcase": {
@@ -227,8 +248,8 @@
       "trialUntilDate": "9 мая 2026",
       "limitLabel": "ЛИМИТ",
       "limitValue": "5 устройств",
-      "upgradeCta": "✦ Перейти на Personal — $4.99/мес",
-      "subscriptionTagline": "Personal — $4.99/мес. До 5 устройств, неограниченные проекты, вся история чатов сохраняется."
+      "upgradeCta": "✦ Перейти на Pro — $19/мес",
+      "subscriptionTagline": "Pro — $19/мес. Без лимитов на серверы и проекты, голосовой режим, полная интеграция Claude Code и Gemini."
     }
   },
   "billing": {
@@ -238,7 +259,7 @@
     "selfHostedBody": "Все функции доступны без ограничений.",
     "adminTitle": "Администратор",
     "trial": "Trial (14 дней)",
-    "personal": "Personal",
+    "personal": "Pro",
     "team": "Team",
     "cancelled": "Отменён",
     "free": "Free",
@@ -249,10 +270,10 @@
     "trialUntil": "Trial до",
     "validUntil": "Действует до",
     "deviceLimit": "Лимит устройств",
-    "upgradeFromTrial": "Перейти на Personal — $4.99/мес",
+    "upgradeFromTrial": "Перейти на Pro — $19/мес",
     "manageSubscription": "Управление подпиской",
     "renew": "Возобновить подписку",
-    "tagline": "Personal — $4.99/мес. До 5 устройств, неограниченные проекты, вся история чатов сохраняется.",
+    "tagline": "Pro — $19/мес. Без лимитов на серверы и проекты, голосовой режим, полная интеграция Claude Code и Gemini.",
     "comingSoonTitle": "Платежи скоро",
     "comingSoonBody": "Идёт интеграция платёжного провайдера. На время beta все юзеры остаются на trial. Пришлём письмо на {email} когда биллинг будет готов.",
     "comingSoonOk": "Понятно"
@@ -277,19 +298,25 @@
   },
   "auth": {
     "appName": "Autmzr Command",
-    "createAdmin": "Создай аккаунт администратора",
-    "signInTitle": "Войти",
-    "signUpTitle": "Регистрация",
+    "subtitleSetup": "Создай аккаунт администратора",
+    "subtitleSignup": "Регистрация по приглашению",
+    "subtitleSignin": "Войди в свой аккаунт",
     "name": "Имя",
+    "namePlaceholder": "Александр",
     "email": "Email",
+    "emailPlaceholder": "you@example.com",
     "password": "Пароль",
     "inviteCode": "Invite-код",
+    "invitePlaceholder": "код от админа",
     "passwordHint": "Минимум 8 символов · буквы + цифры",
-    "submitSignIn": "Войти",
-    "submitSignUp": "Создать и войти",
-    "switchToSignIn": "Уже есть аккаунт? Войти",
-    "switchToSignUp": "Нужен аккаунт? Регистрация",
-    "footer": "self-hosted · AGPL-3.0 · подключай свои сервера"
+    "submitSetup": "Создать и войти",
+    "submitSignup": "Зарегистрироваться",
+    "submitSignin": "Войти",
+    "switchToSignup": "Есть invite-код? Зарегистрироваться",
+    "switchToSignin": "← Войти существующим аккаунтом",
+    "footer": "self-hosted · AGPL-3.0 · подключай свои серверы",
+    "loading": "Загрузка…",
+    "errorFallback": "Ошибка {status}"
   },
   "fileEditor": {
     "unsaved": "не сохр",

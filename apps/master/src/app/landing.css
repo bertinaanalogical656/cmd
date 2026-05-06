@@ -7,8 +7,10 @@
 .linear-root {
   /* Palette */
   --bg:           #0b0b0d;
+  --bg-raised:    #0e0e13;   /* subtle rhythm для чередующихся секций */
   --surface:      #131318;
   --surface-2:    #1a1a22;
+  --code-bg:      #1a1a22;
   --border:       #26262e;
   --border-glow:  rgba(95, 184, 120, .15);
   --border-strong: #3a3a45;
@@ -17,8 +19,16 @@
   --muted:        #71717a;
   --accent:       #5fb878;
   --vibrant:      #7dd6a3;
+  --vibrant-fg:   #0a1c12;
   --ok:           #5fb878;
   --danger:       #f87171;
+  /* Hero chocolate-glow — единственный warm-tone акцент на тёмном лендинге */
+  --hero-glow:    radial-gradient(
+                    ellipse 720px 480px at 50% 18%,
+                    rgba(168, 112, 62, 0.45) 0%,
+                    rgba(120, 72, 36, 0.22) 35%,
+                    transparent 70%
+                  );
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
@@ -61,6 +71,11 @@ html[data-theme="light"] .linear-root {
   --shadow-glow: 0 0 32px rgba(23, 139, 74, .10);
   --shadow-soft: 0 1px 0 0 rgba(0, 0, 0, .03), 0 8px 24px -12px rgba(42, 29, 20, .15);
 }
+
+/* All-dark лендинг: Problem/Features/FAQ используют var(--bg-raised) напрямую
+   через inline style для чередующегося ритма. Класс .ln-light удалён —
+   cream-вариант не поддерживается, т.к. карточки внутри спроектированы
+   под тёмную палитру (surface = #131318). */
 
 .linear-root * {
   box-sizing: border-box;

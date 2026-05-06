@@ -19,7 +19,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="relative w-full" style={{ background: 'var(--bg-2)' }}>
+    <section className="relative w-full" style={{ background: 'var(--bg-raised)' }}>
       <div className="mx-auto w-full max-w-[820px] px-6 py-20 md:py-28">
         <div className="text-center">
           <p
@@ -68,8 +68,34 @@ export default function FAQ() {
                     className="space-y-2.5 px-5 pb-5 text-[13.5px] leading-[1.6] animate-fadeUp sm:px-6 sm:pb-6"
                     style={{ color: 'var(--fg-2)' }}
                   >
-                    <p>{t(`items.${item.key}.a1`)}</p>
-                    {item.hasA2 && <p>{t(`items.${item.key}.a2`)}</p>}
+                    <p>
+                      {t.rich(`items.${item.key}.a1`, {
+                        strong: (chunks) => <strong style={{ color: 'var(--fg)' }}>{chunks}</strong>,
+                        code: (chunks) => (
+                          <code
+                            className="rounded px-1 py-0.5 font-mono text-[12.5px]"
+                            style={{ background: 'var(--surface-2)', color: 'var(--vibrant)' }}
+                          >
+                            {chunks}
+                          </code>
+                        ),
+                      })}
+                    </p>
+                    {item.hasA2 && (
+                      <p>
+                        {t.rich(`items.${item.key}.a2`, {
+                          strong: (chunks) => <strong style={{ color: 'var(--fg)' }}>{chunks}</strong>,
+                          code: (chunks) => (
+                            <code
+                              className="rounded px-1 py-0.5 font-mono text-[12.5px]"
+                              style={{ background: 'var(--surface-2)', color: 'var(--vibrant)' }}
+                            >
+                              {chunks}
+                            </code>
+                          ),
+                        })}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>

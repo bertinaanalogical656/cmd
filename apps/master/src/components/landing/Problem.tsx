@@ -1,6 +1,6 @@
 'use client';
 
-import { Lightbulb, AlarmClock, CreditCard, Bot } from 'lucide-react';
+import { Lightbulb, AlarmClock, CreditCard, Bot, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 const CARDS = [
@@ -13,7 +13,7 @@ const CARDS = [
 export default function Problem() {
   const t = useTranslations('problem');
   return (
-    <section className="relative w-full" style={{ background: 'var(--bg-2)' }}>
+    <section className="relative w-full" style={{ background: 'var(--bg-raised)' }}>
       <div className="mx-auto w-full max-w-[1100px] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[700px] text-center">
           <p
@@ -40,7 +40,7 @@ export default function Problem() {
               >
                 <Icon size={18} strokeWidth={2.2} />
               </div>
-              <h3 className="text-[16px] font-semibold tracking-tight sm:text-[17px]">
+              <h3 className="text-[16px] font-semibold tracking-tight sm:text-[17px]" style={{ color: 'var(--fg)' }}>
                 {t(`cards.${key}.title`)}
               </h3>
               <p className="mt-2 text-[13.5px] leading-[1.55]" style={{ color: 'var(--fg-2)' }}>
@@ -48,6 +48,20 @@ export default function Problem() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-5 md:mt-14">
+          <p className="text-[15px] font-medium" style={{ color: 'var(--fg)' }}>
+            {t('cta.text')}
+          </p>
+          <a
+            href="/login"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[13.5px] font-semibold transition-colors"
+            style={{ background: 'var(--vibrant)', color: 'var(--vibrant-fg)' }}
+          >
+            {t('cta.button')}
+            <ArrowRight size={15} />
+          </a>
         </div>
       </div>
     </section>

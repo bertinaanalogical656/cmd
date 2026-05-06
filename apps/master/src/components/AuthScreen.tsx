@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Sparkles, Loader2, Lock, Mail, User as UserIcon, Ticket } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { api } from '@/lib/api';
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 type Mode = 'login' | 'signup';
 
 export default function AuthScreen({ needSetup, onAuth }: Props) {
+  const t = useTranslations('auth');
   // needSetup === true → форсим регистрацию первого админа.
   // Иначе пользователь сам выбирает: «Войти» или «Регистрация» (по invite-коду).
   const [mode, setMode] = useState<Mode>('login');
@@ -33,6 +35,8 @@ export default function AuthScreen({ needSetup, onAuth }: Props) {
   }, [needSetup]);
 
   const isSignup = needSetup || mode === 'signup';
+  const subtitleKey = needSetup ? 'subtitleSetup' : isSignup ? 'subtitleSignup' : 'subtitleSignin';
+  const submitKey = needSetup ? 'submitSetup' : isSignup ? 'submitSignup' : 'submitSignin';
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -50,7 +54,7 @@ export default function AuthScreen({ needSetup, onAuth }: Props) {
     setBusy(false);
     if (!r.ok) {
       const j = await r.json().catch(() => ({}));
-      setErr(j.error || `Ошибка ${r.status}`); return;
+      setErr(j.error || t('errorFallback', { status: r.status })); return;
     }
     const j = await r.json();
     onAuth(j.user);
@@ -65,42 +69,40 @@ export default function AuthScreen({ needSetup, onAuth }: Props) {
             style={{ background: 'var(--accent)', color: 'var(--bg)' }}>
             <Sparkles size={22} strokeWidth={2.2} />
           </div>
-          <h1 className="text-[22px] font-semibold tracking-tight">Autmzr Command</h1>
+          <h1 className="text-[22px] font-semibold tracking-tight">{t('appName')}</h1>
           <p className="text-[13px] mt-1.5" style={{ color: 'var(--muted)' }}>
-            {needSetup
-              ? 'Создай аккаунт администратора'
-              : isSignup ? 'Регистрация по приглашению' : 'Войди в свой аккаунт'}
+            {t(subtitleKey)}
           </p>
         </div>
 
         <form onSubmit={submit} className="surface p-6 flex flex-col gap-4" style={{ boxShadow: 'var(--shadow)' }}>
           {isSignup && (
             <div>
-              <label className="field-label flex items-center gap-1.5"><UserIcon size={11} />Имя</label>
-              <input value={name} onChange={(e) => setName(e.target.value)} className="field" placeholder="Александр" />
+              <label className="field-label flex items-center gap-1.5"><UserIcon size={11} />{t('name')}</label>
+              <input value={name} onChange={(e) => setName(e.target.value)} className="field" placeholder={t('namePlaceholder')} />
             </div>
           )}
           <div>
-            <label className="field-label flex items-center gap-1.5"><Mail size={11} />Email</label>
+            <label className="field-label flex items-center gap-1.5"><Mail size={11} />{t('email')}</label>
             <input type="email" value={email} required onChange={(e) => setEmail(e.target.value)}
-              className="field" placeholder="you@example.com" autoComplete="email" />
+              className="field" placeholder={t('emailPlaceholder')} autoComplete="email" />
           </div>
           <div>
-            <label className="field-label flex items-center gap-1.5"><Lock size={11} />Пароль</label>
+            <label className="field-label flex items-center gap-1.5"><Lock size={11} />{t('password')}</label>
             <input type="password" value={password} required onChange={(e) => setPassword(e.target.value)}
               className="field" placeholder="•••••••" minLength={isSignup ? 8 : undefined}
               autoComplete={isSignup ? 'new-password' : 'current-password'} />
             {isSignup && (
               <p className="text-[10.5px] mt-1.5" style={{ color: 'var(--muted)' }}>
-                Минимум 8 символов · буквы + цифры
+                {t('passwordHint')}
               </p>
             )}
           </div>
           {isSignup && !needSetup && (
             <div>
-              <label className="field-label flex items-center gap-1.5"><Ticket size={11} />Invite-код</label>
+              <label className="field-label flex items-center gap-1.5"><Ticket size={11} />{t('inviteCode')}</label>
               <input value={inviteCode} required onChange={(e) => setInviteCode(e.target.value.trim())}
-                className="field font-mono" placeholder="код от админа" />
+                className="field font-mono" placeholder={t('invitePlaceholder')} />
             </div>
           )}
           {err && (
@@ -111,7 +113,7 @@ export default function AuthScreen({ needSetup, onAuth }: Props) {
           )}
           <button type="submit" disabled={busy} className="btn btn-primary mt-1">
             {busy && <Loader2 size={14} className="animate-spin" />}
-            {isSignup ? (needSetup ? 'Создать и войти' : 'Зарегистрироваться') : 'Войти'}
+            {t(submitKey)}
           </button>
 
           {!needSetup && (
@@ -120,13 +122,13 @@ export default function AuthScreen({ needSetup, onAuth }: Props) {
               className="text-[12px] underline-offset-2 hover:underline"
               style={{ color: 'var(--muted)' }}
             >
-              {mode === 'login' ? 'Есть invite-код? Зарегистрироваться' : '← Войти существующим аккаунтом'}
+              {mode === 'login' ? t('switchToSignup') : t('switchToSignin')}
             </button>
           )}
         </form>
 
         <p className="text-center text-[11px] mt-5" style={{ color: 'var(--muted)' }}>
-          self-hosted · MIT · подключай свои сервера
+          {t('footer')}
         </p>
       </div>
     </div>

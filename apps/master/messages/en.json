@@ -7,9 +7,9 @@
     "badge": "v0.1 · open-source · AGPL-3.0",
     "title": "All your VPS and CLIs",
     "titleAccent": "in one mobile interface.",
-    "lede": "Plug any CLI into one server — and use it across all the others. Ship a deploy from a cab, check prod logs in the coffee line, fix a config from the couch — by voice.",
-    "ctaCloud": "Try the cloud version",
-    "ctaGithub": "Star on GitHub",
+    "lede": "One CLI subscription. Every server you own. Voice control from anywhere — your phone is the IDE now.",
+    "ctaCloud": "Start free — 14 days, no card",
+    "ctaGithub": "⭐ Star on GitHub",
     "metaLine": "Open source for self-host · Mobile-first · Voice input",
     "mockup": {
       "deviceName": "prod-fra-1",
@@ -44,6 +44,10 @@
         "title": "Telegram bots fall over.",
         "body": "They crash, lose context, die after 5 minutes mid-task — and pretend they finished with a fake \"✅ done\"."
       }
+    },
+    "cta": {
+      "text": "Sound exactly like your week?",
+      "button": "Try Autmzr free →"
     }
   },
   "howItWorks": {
@@ -119,20 +123,36 @@
       "bullet5": "Community support on GitHub",
       "cta": "Get the code"
     },
-    "cloud": {
-      "name": "Cloud",
+    "pro": {
+      "name": "Pro",
       "tag": "Hosted",
-      "badge": "Easiest",
-      "price": "$4.99",
+      "badge": "Most popular",
+      "price": "$19",
       "period": "/ month",
-      "blurb": "We host the master. You connect your servers.",
-      "bullet1": "Everything in self-host",
-      "bullet2": "Auto-updates with every release",
-      "bullet3": "Session backups",
-      "bullet4": "Email/Telegram support",
+      "priceYearly": "or $190/year — save $38 (2 months free)",
+      "blurb": "We host the master. You bring servers, keys, and CLIs.",
+      "bullet1": "Unlimited servers and projects",
+      "bullet2": "Voice mode + full Claude Code & Gemini CLI integration",
+      "bullet3": "Auto-updates and session backups",
+      "bullet4": "Email + Telegram support",
       "bullet5": "14 days free, no card required",
-      "cta": "Try it free"
+      "cta": "Start free"
     },
+    "team": {
+      "name": "Team",
+      "tag": "Q3 2026",
+      "badge": "Coming soon",
+      "price": "$49",
+      "period": "/ seat / month",
+      "blurb": "Everything in Pro, plus shared infrastructure for small teams.",
+      "bullet1": "Project sharing across the team",
+      "bullet2": "Audit log of every agent action",
+      "bullet3": "SSO (Google, GitHub, Microsoft)",
+      "bullet4": "Role-based access (admin / dev / viewer)",
+      "bullet5": "Priority support",
+      "cta": "Notify me"
+    },
+    "lockInNote": "No lock-in. Cancel anytime. Export your data anytime. Self-host any time.",
     "footer": "Either way, your Claude/Gemini key or subscription stays yours. We don't resell anyone's tokens."
   },
   "faq": {
@@ -141,8 +161,8 @@
     "items": {
       "security": {
         "q": "Is it secure? Where do my API keys go?",
-        "a1": "Nowhere. In self-host they live only in your Postgres DB and never leave your infrastructure. In the cloud version they're encrypted in our DB and only decrypted at the moment an agent starts.",
-        "a2": "The agent on your server physically can't read ~/.claude/* — that's blocked at the protocol layer. Open source under AGPL-3.0 — verify it yourself."
+        "a1": "Your secrets stay in your infrastructure. Period. In <strong>self-host</strong>: keys live in your Postgres, never leave your network. We literally cannot see them. In <strong>cloud</strong>: keys are encrypted at rest with libsodium sealed boxes, decrypted only at the moment an agent starts a task. Even our database admin cannot read them.",
+        "a2": "The agent on your server runs in a sandboxed namespace. It physically cannot access <code>~/.claude/*</code> or read other processes' memory. Verify it yourself: every line is open source under AGPL-3.0."
       },
       "noVpn": {
         "q": "Does it work without a VPN?",
@@ -189,9 +209,10 @@
       "changelog": "Changelog",
       "privacy": "Privacy",
       "terms": "Terms",
+      "telegram": "Telegram",
       "contact": "Contact"
     },
-    "made": "Made with ☕ in {year} · AGPL-3.0",
+    "made": "Made with ☕ in {year} by a solo developer · AGPL-3.0",
     "version": "v0.1.0"
   },
   "showcase": {
@@ -227,8 +248,8 @@
       "trialUntilDate": "May 9, 2026",
       "limitLabel": "LIMIT",
       "limitValue": "5 devices",
-      "upgradeCta": "✦ Upgrade to Personal — $4.99/mo",
-      "subscriptionTagline": "Personal — $4.99/mo. Up to 5 devices, unlimited projects, all chat history kept."
+      "upgradeCta": "✦ Upgrade to Pro — $19/mo",
+      "subscriptionTagline": "Pro — $19/mo. Unlimited servers, unlimited projects, voice mode, full Claude Code & Gemini integration."
     }
   },
   "billing": {
@@ -238,7 +259,7 @@
     "selfHostedBody": "All features unlocked, no limits.",
     "adminTitle": "Administrator",
     "trial": "Trial (14 days)",
-    "personal": "Personal",
+    "personal": "Pro",
     "team": "Team",
     "cancelled": "Cancelled",
     "free": "Free",
@@ -249,10 +270,10 @@
     "trialUntil": "Trial until",
     "validUntil": "Valid until",
     "deviceLimit": "Device limit",
-    "upgradeFromTrial": "Upgrade to Personal — $4.99/mo",
+    "upgradeFromTrial": "Upgrade to Pro — $19/mo",
     "manageSubscription": "Manage subscription",
     "renew": "Renew subscription",
-    "tagline": "Personal — $4.99/mo. Up to 5 devices, unlimited projects, all chat history kept.",
+    "tagline": "Pro — $19/mo. Unlimited servers, unlimited projects, voice mode, full Claude Code & Gemini integration.",
     "comingSoonTitle": "Payments coming soon",
     "comingSoonBody": "We're integrating the payment provider. During beta all users stay on trial. We'll email {email} when billing goes live.",
     "comingSoonOk": "Got it"
@@ -277,19 +298,25 @@
   },
   "auth": {
     "appName": "Autmzr Command",
-    "createAdmin": "Create admin account",
-    "signInTitle": "Sign in",
-    "signUpTitle": "Sign up",
+    "subtitleSetup": "Create admin account",
+    "subtitleSignup": "Sign up by invite",
+    "subtitleSignin": "Sign in to your account",
     "name": "Name",
+    "namePlaceholder": "Alex",
     "email": "Email",
+    "emailPlaceholder": "you@example.com",
     "password": "Password",
     "inviteCode": "Invite code",
+    "invitePlaceholder": "Code from admin",
     "passwordHint": "Min 8 chars · letters + digits",
-    "submitSignIn": "Sign in",
-    "submitSignUp": "Create and sign in",
-    "switchToSignIn": "Already have an account? Sign in",
-    "switchToSignUp": "Need an account? Sign up",
-    "footer": "self-hosted · AGPL-3.0 · connect your own servers"
+    "submitSetup": "Create and sign in",
+    "submitSignup": "Sign up",
+    "submitSignin": "Sign in",
+    "switchToSignup": "Have invite? Sign up",
+    "switchToSignin": "← Sign in to existing account",
+    "footer": "self-hosted · AGPL-3.0 · connect your own servers",
+    "loading": "Loading…",
+    "errorFallback": "Error {status}"
   },
   "fileEditor": {
     "unsaved": "unsaved",

@@ -15,7 +15,7 @@ const FEATURES = [
 export default function Features() {
   const t = useTranslations('features');
   return (
-    <section className="relative w-full" style={{ background: 'var(--bg-2)' }}>
+    <section className="relative w-full" style={{ background: 'var(--bg-raised)' }}>
       <div className="mx-auto w-full max-w-[1100px] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[700px] text-center">
           <p
