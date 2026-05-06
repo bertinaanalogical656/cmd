@@ -2,7 +2,7 @@
 
 This is the public plan for Autmzr. Items are intentionally aspirational — what we'd *like* to ship — not commitments. Reality moves things around.
 
-If you want to influence the roadmap: open a [Discussion](https://github.com/autmzr/cmd/discussions) or thumbs-up an existing issue. Community voice changes priorities.
+If you want to influence the roadmap: open a [Discussion](https://github.com/AUTMZR/cmd/discussions) or thumbs-up an existing issue. Community voice changes priorities.
 
 ---
 
@@ -90,9 +90,9 @@ To set expectations:
 
 ## How to influence priorities
 
-1. **Find or open an [issue](https://github.com/autmzr/cmd/issues).** Specific, actionable issues move first.
+1. **Find or open an [issue](https://github.com/AUTMZR/cmd/issues).** Specific, actionable issues move first.
 2. **Thumbs-up existing issues** — we use 👍 reactions as a rough demand signal.
-3. **Open a [Discussion](https://github.com/autmzr/cmd/discussions)** for bigger ideas before writing code.
+3. **Open a [Discussion](https://github.com/AUTMZR/cmd/discussions)** for bigger ideas before writing code.
 4. **Send a PR.** A working PR that passes CI almost always merges, even if it wasn't on the official roadmap.
 
 ---

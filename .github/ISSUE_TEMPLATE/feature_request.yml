@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for the suggestion. A few notes:
 
-        - For broader ideas / RFCs, consider opening a [Discussion](https://github.com/autmzr/cmd/discussions) first.
+        - For broader ideas / RFCs, consider opening a [Discussion](https://github.com/AUTMZR/cmd/discussions) first.
         - We use 👍 reactions on issues as a demand signal, so describe the use case clearly.
 
   - type: textarea

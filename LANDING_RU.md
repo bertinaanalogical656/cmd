@@ -185,7 +185,7 @@ Anthropic привязан только к Claude и к подписке Anthrop
 
 ## 9. Open source + Roadmap
 
-- **GitHub:** [github.com/autmzr/cmd](https://github.com/autmzr/cmd)
+- **GitHub:** [github.com/AUTMZR/cmd](https://github.com/AUTMZR/cmd)
 - **Лицензия:** AGPL-3.0
 
 ### Что делаем сейчас (Q2 2026)

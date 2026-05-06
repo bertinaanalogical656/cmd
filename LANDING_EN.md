@@ -181,7 +181,7 @@ Right now: single user, single infrastructure. Teams, SSO, audit — on the road
 
 ## 9. Open source + roadmap
 
-- **GitHub:** [github.com/autmzr/cmd](https://github.com/autmzr/cmd) *(repo URL TBD)*
+- **GitHub:** [github.com/AUTMZR/cmd](https://github.com/AUTMZR/cmd) *(repo URL TBD)*
 - **License:** AGPL-3.0
 
 ### Doing now (Q2 2026)

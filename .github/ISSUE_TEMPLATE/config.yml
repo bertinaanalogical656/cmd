@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question or general help
-    url: https://github.com/autmzr/cmd/discussions
+    url: https://github.com/AUTMZR/cmd/discussions
     about: For general questions, ideas, or discussion — open a Discussion instead of an issue.
   - name: Security vulnerability
-    url: https://github.com/autmzr/cmd/security/policy
+    url: https://github.com/AUTMZR/cmd/security/policy
     about: Report security issues privately. Do not open a public issue.

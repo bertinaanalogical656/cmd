@@ -33,7 +33,7 @@ export default function Footer() {
             <FooterCol title={t('columns.product')}>
               <FooterLink href="/login">{t('links.signIn')}</FooterLink>
               <FooterLink href="/#pricing">{t('links.pricing')}</FooterLink>
-              <FooterLink href="https://github.com/autmzr/cmd" external>
+              <FooterLink href="https://github.com/AUTMZR/cmd" external>
                 <span className="inline-flex items-center gap-1.5">
                   <Github size={12} />
                   {t('links.github')}
@@ -41,13 +41,13 @@ export default function Footer() {
               </FooterLink>
             </FooterCol>
             <FooterCol title={t('columns.resources')}>
-              <FooterLink href="https://github.com/autmzr/cmd#readme" external>
+              <FooterLink href="https://github.com/AUTMZR/cmd#readme" external>
                 {t('links.docs')}
               </FooterLink>
-              <FooterLink href="https://github.com/autmzr/cmd/issues" external>
+              <FooterLink href="https://github.com/AUTMZR/cmd/issues" external>
                 {t('links.reportBug')}
               </FooterLink>
-              <FooterLink href="https://github.com/autmzr/cmd/releases" external>
+              <FooterLink href="https://github.com/AUTMZR/cmd/releases" external>
                 {t('links.changelog')}
               </FooterLink>
               <FooterLink href="https://t.me/autmzr" external>

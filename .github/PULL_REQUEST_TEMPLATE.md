@@ -30,7 +30,7 @@ Include commands, URLs, expected output, screenshots/GIFs for UI changes.
 
 ## Checklist
 
-- [ ] I read [CONTRIBUTING.md](https://github.com/autmzr/cmd/blob/main/CONTRIBUTING.md)
+- [ ] I read [CONTRIBUTING.md](https://github.com/AUTMZR/cmd/blob/main/CONTRIBUTING.md)
 - [ ] I added/updated tests where it makes sense
 - [ ] `npm run build` passes locally
 - [ ] I updated docs (`README.md` / `docs/`) if behavior changed

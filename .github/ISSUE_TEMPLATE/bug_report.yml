@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for taking the time to file a bug report. Please fill out the fields below to help us reproduce.
 
-        **For security issues, do NOT open a public issue.** See [SECURITY.md](https://github.com/autmzr/cmd/blob/main/SECURITY.md).
+        **For security issues, do NOT open a public issue.** See [SECURITY.md](https://github.com/AUTMZR/cmd/blob/main/SECURITY.md).
 
   - type: textarea
     id: what-happened

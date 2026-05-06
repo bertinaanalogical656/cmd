@@ -42,5 +42,5 @@ First public release. Project rebranded from `pocket-claude` to `autmzr`.
 - Single-user, self-hosted MVP. Multi-user / teams / SSO are on the roadmap (v0.4+).
 - Gemini CLI is geo-blocked from some regions (Russia, China, others) by Google. Self-hosting on a server outside those regions works.
 
-[Unreleased]: https://github.com/autmzr/cmd/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/autmzr/cmd/releases/tag/v0.1.0
+[Unreleased]: https://github.com/AUTMZR/cmd/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/AUTMZR/cmd/releases/tag/v0.1.0

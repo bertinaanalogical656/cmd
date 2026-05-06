@@ -32,7 +32,7 @@ Requirements: Linux/macOS VPS with Docker, 2 GB RAM, a domain.
 
 ```bash
 # 1. Clone
-git clone https://github.com/autmzr/cmd.git
+git clone https://github.com/AUTMZR/cmd.git
 cd cmd
 
 # 2. Run the setup wizard (5 questions)
@@ -184,7 +184,7 @@ Contributions welcome — bug reports, fixes, new CLI integrations, docs, transl
 - Be kind: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - Architectural overview: [docs/architecture.md](docs/architecture.md)
 
-Easy first issues are tagged [`good first issue`](https://github.com/autmzr/cmd/labels/good%20first%20issue).
+Easy first issues are tagged [`good first issue`](https://github.com/AUTMZR/cmd/labels/good%20first%20issue).
 
 ---
 
@@ -194,7 +194,7 @@ Easy first issues are tagged [`good first issue`](https://github.com/autmzr/cmd/
 
 This means: you can use, modify, and run Autmzr commercially or non-commercially. If you offer Autmzr (or a modified version) **as a hosted service to others**, you must publish your modifications under the same license. This protects the project from being forked into a closed-source SaaS competitor.
 
-If AGPL doesn't fit your use case, [open an issue](https://github.com/autmzr/cmd/issues) — we may consider a commercial license.
+If AGPL doesn't fit your use case, [open an issue](https://github.com/AUTMZR/cmd/issues) — we may consider a commercial license.
 
 ---
 
@@ -218,7 +218,7 @@ packages/rfs-mcp/    # Remote-FS MCP server for proxy mode
 
 - **Website:** [autmzr.com](https://autmzr.com)
 - **Docs:** [docs/](docs/)
-- **Issues / Discussions:** [GitHub Issues](https://github.com/autmzr/cmd/issues)
+- **Issues / Discussions:** [GitHub Issues](https://github.com/AUTMZR/cmd/issues)
 - **Security:** [SECURITY.md](SECURITY.md)
 
 ---

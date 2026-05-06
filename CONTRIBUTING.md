@@ -26,7 +26,7 @@ For security issues, **don't open a public issue** — see [SECURITY.md](SECURIT
 ## Development setup
 
 ```bash
-git clone https://github.com/autmzr/cmd.git
+git clone https://github.com/AUTMZR/cmd.git
 cd cmd
 npm install
 npm run setup   # interactive wizard
