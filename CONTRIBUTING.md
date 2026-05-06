@@ -86,13 +86,16 @@ We do not require sign-off / DCO. License is AGPL-3.0; by submitting a PR you ag
 
 ## Translations
 
-The landing has three languages today: EN (default), RU, ZH. To add another:
+The landing has three languages today: EN (default), RU, ZH. As of 2026-05-06 it runs on [next-intl](https://next-intl.dev/) — translations live as JSON in `apps/master/messages/`, **not** in the legacy `LANDING_*.md` files (those remain only for backwards-compatible deep-links).
 
-1. Copy `LANDING_EN.md` to `LANDING_<XX>.md`.
-2. Translate, keeping the structure and code blocks intact.
-3. Update the language switcher links in all four `LANDING_*.md` files plus README.
+To add a new language `<xx>` (ISO 639-1, e.g. `es`, `pt`, `de`, `ja`):
 
-Native speakers welcome — we'd rather ship a polished translation than a Google-Translate one.
+1. **Register the locale** in `apps/master/src/i18n/locales.ts` — append to `LOCALES` and add an entry to `LOCALE_LABELS` (`code` + `native`).
+2. **Translate** `apps/master/messages/en.json` → `apps/master/messages/<xx>.json`. Keep every key, every `{placeholder}`, and every ICU plural form intact. Preserve native diacritics (`español`, `café`, `ñ`, `ü`, `ß`).
+3. **Verify** with `npm run dev -w apps/master`. Switch language via the footer LocaleSwitch and walk through Hero / Problem / Features / HowItWorks / Showcase / Pricing / FAQ / Footer — nothing should fall back to English.
+4. **Add the language to the README** Languages section.
+
+Native or near-native speakers strongly preferred — we'd rather ship a polished translation than a Google-Translate one. The brand name `Autmzr` stays in Latin script in all locales.
 
 ## Communication
 
